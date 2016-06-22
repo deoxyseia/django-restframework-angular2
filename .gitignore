@@ -11,5 +11,6 @@ __pycache__/
 *.py[cod]
 
 node_modules
+typings
 
 *.map
