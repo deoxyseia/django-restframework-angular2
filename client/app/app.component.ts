@@ -31,8 +31,6 @@ export class AppComponent {
             .subscribe(
                 tasks => this.tasks = tasks,
                 error => this.errorMessage = <any>error);
-
-        console.log(this.tasks)
     }
 
     showDialogToAdd() {
