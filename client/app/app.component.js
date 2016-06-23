@@ -19,7 +19,8 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.taskService.getTasks().then(function (tasks) { return _this.tasks = tasks; });
+        this.taskService.getTasks()
+            .subscribe(function (tasks) { return _this.tasks = tasks; }, function (error) { return _this.errorMessage = error; });
         console.log(this.tasks);
     };
     AppComponent.prototype.showDialogToAdd = function () {

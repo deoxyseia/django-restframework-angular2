@@ -11,7 +11,9 @@ import {TaskService} from './tasks/taskservice';
 	providers: [HTTP_PROVIDERS,TaskService]
 })
 export class AppComponent {
-
+    
+    errorMessage: string;
+    
 	displayDialog: boolean;
 
     task: Task = new PrimeTask();
@@ -25,7 +27,10 @@ export class AppComponent {
     constructor(private taskService: TaskService) { }
 
     ngOnInit() {
-        this.taskService.getTasks().then(tasks => this.tasks = tasks);
+        this.taskService.getTasks()
+            .subscribe(
+                tasks => this.tasks = tasks,
+                error => this.errorMessage = <any>error);
 
         console.log(this.tasks)
     }
