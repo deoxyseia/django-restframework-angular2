@@ -1,0 +1,40 @@
+<datatable-demos></datatable-demos>
+
+<div class="ContentSideSections">
+    <div class="Content100 overHidden TextShadow">
+        <span class="fontSize30 TextShadow orange mediumFont marginBottom20 dispBlock">Angular2, Django and REST Framework</span>
+    </div>
+</div>
+
+<div class="ContentSideSections Implementation">
+    <p-dataTable [value]="tasks" selectionMode="single" [(selection)]="selectedTask" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+        <header>CRUD for Tasks</header>
+        <p-column field="task" header="Task" [sortable]="true"></p-column>
+        <p-column field="deadline" header="Deadline" [sortable]="true"></p-column>
+        <p-column field="active" header="Active" [sortable]="true"></p-column>
+        <footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></footer>
+    </p-dataTable>
+
+    <p-dialog header="Tasks details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="task">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="task">Task</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="task" [(ngModel)]="task.task" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="deadline">Deadline</label></div>
+                <div class="ui-grid-col-8"><input id="deadline" [(ngModel)]="task.deadline" /></div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4"><label for="active">Active</label></div>
+                <div class="ui-grid-col-8"><input pInputText id="active" [(ngModel)]="task.active" /></div>
+            </div>
+        </div>
+        <footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+                <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+            </div>
+        </footer>
+    </p-dialog>
+</div>
