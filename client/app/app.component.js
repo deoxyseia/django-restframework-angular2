@@ -68,7 +68,8 @@ var AppComponent = (function () {
 }());
 exports.AppComponent = AppComponent;
 var PrimeTask = (function () {
-    function PrimeTask(task, deadline, active) {
+    function PrimeTask(url, task, deadline, active) {
+        this.url = url;
         this.task = task;
         this.deadline = deadline;
         this.active = active;

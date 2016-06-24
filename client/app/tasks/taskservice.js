@@ -23,6 +23,7 @@ var TaskService = (function () {
     //                 .then(data => { return data; });
     // }
     TaskService.prototype.getTasks = function () {
+        //noinspection TypeScriptUnresolvedFunction
         return this.http.get(this.snippetsUrl)
             .map(this.extractData)
             .catch(this.handleError);
@@ -30,7 +31,7 @@ var TaskService = (function () {
     TaskService.prototype.extractData = function (res) {
         var body = res.json();
         console.log(body);
-        return body.results || {};
+        return body || {};
     };
     TaskService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

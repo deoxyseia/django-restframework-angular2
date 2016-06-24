@@ -7,7 +7,7 @@ env/
 # IDE
 *.idea/
 
-__pycache__/
+__pycache__
 *.py[cod]
 
 node_modules

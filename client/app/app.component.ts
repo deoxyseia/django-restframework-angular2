@@ -76,5 +76,5 @@ export class AppComponent {
 
 class PrimeTask implements Task {
 
-    constructor(public task?, public deadline?, public active?) {}
+    constructor(public url?, public task?, public deadline?, public active?) {}
 }

@@ -19,6 +19,7 @@ export class TaskService {
 
 
     getTasks(): Observable<Task[]> {
+        //noinspection TypeScriptUnresolvedFunction
         return this.http.get(this.snippetsUrl)
                    .map(this.extractData)
                    .catch(this.handleError);
@@ -29,7 +30,7 @@ export class TaskService {
 
         console.log(body);
 
-        return body.results || {};
+        return body || {};
     }
 
     private handleError(error: any) {
